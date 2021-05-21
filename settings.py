@@ -1,2 +1,2 @@
-API_TOKEN = "1162070036:AAENGn9aUwwiBGFbQIEd-Vdca2nJVmFY1LI"
+API_TOKEN = "Your token here"
 DB_FILENAME = "data.db"
