@@ -39,6 +39,27 @@ async def ban_member(message: types.Message):
     {message.reply_to_message.from_user.full_name}", parse_mode='html')
 
 
+@dp.message_handler(commands=['start', 'help'])
+async def help(message: types.Message):
+    message_text = """
+Hello, I am IntelligentAdminBot, add me to your chat and give me admin rights.
+
+Which commands I know?
+
+/stat -> Get statistics and settings.
+/ban (Must be reply to message) -> Ban member.
+/mute (Must by reply to message) -> Mute member.
+/warn -> Warn member.
+/unban -> Unban member.
+/unmute -> Unmute member.
+/status (Must be reply to message) -> Get information about member.
+/ws -> Enable/Disable Spammer-Protection System.
+/setbantime -> Set specific ban time, set zero to disable it.
+/setwarnstoban -> Set specific count of warnings to ban.
+
+"""
+    await bot.send_message(message.chat.id, message_text)
+
 @dp.message_handler(IsReplyFilter(is_reply=True), IsAdminFilter(can_restrict_members=True), commands=['warn'],
                     commands_prefix='!/')
 async def warn_member(message: types.Message):
