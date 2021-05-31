@@ -1,2 +1,2 @@
-API_TOKEN = "Your token here"
-DB_FILENAME = "data.db"
+API_TOKEN = "YOUR API TOKEN" # put token from https://t.me/BotFather
+DB_FILENAME = "data.db" # you can use custom filename
