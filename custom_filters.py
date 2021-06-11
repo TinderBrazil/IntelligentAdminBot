@@ -39,3 +39,4 @@ class ArgsCount(Filter):
 
     async def check(self, message: types.Message):
         return len(message.text.split()[1::]) >= self.args_count
+
