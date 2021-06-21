@@ -13,7 +13,7 @@ async def ban_unregistered_member(chat_id, member_id):
     try:
         UnregisteredMember.get(UnregisteredMember.user_id == member_id)
         member = await bot.get_chat_member(chat_id=chat_id, user_id=member_id)
-        await bot.send_message(chat_id, f"I think {member.user.first_name} was bot...")
+        await bot.send_message(chat_id, f"eu acho que {member.user.first_name} foi bot ... ")
         await bot.kick_chat_member(chat_id, member_id)
     except UnregisteredMember.DoesNotExist:
         pass
@@ -25,9 +25,9 @@ async def ban_member(message: types.Message):
     try:
         await bot.kick_chat_member(message.chat.id, message.reply_to_message.from_user.id, until_date=5)
     except exceptions.UserIsAnAdministratorOfTheChat:
-        await bot.send_message(message.chat.id, "User is an administrator of the chat.")
+        await bot.send_message(message.chat.id, "O usuário é um administrador do chat.")
     else:
-        await bot.send_message(message.chat.id, f"{message.from_user.first_name} <b>permentally</b> banned\
+        await bot.send_message(message.chat.id, f"{message.from_user.first_name} <b>permentalmente</b> banido\
     {message.reply_to_message.from_user.full_name}", parse_mode='html')
 
 
@@ -43,13 +43,13 @@ async def warn_member(message: types.Message):
             try:
                 await bot.kick_chat_member(message.chat.id, message.reply_to_message.from_user.id)
                 await bot.send_message(message.chat.id,
-                                       f"{message.reply_to_message.from_user.full_name} has been banned.")
+                                       f"{message.reply_to_message.from_user.full_name} foi banido.")
             except exceptions.UserIsAnAdministratorOfTheChat:
-                await bot.send_message(message.chat.id, "OH, stop, I can't remove admin.")
+                await bot.send_message(message.chat.id, "OH, pare, não consigo remover o admin.")
                 member.warnings = 0
         else:
             await bot.send_message(message.chat.id,
-                                   f"{message.from_user.first_name} warned \
+                                   f"{message.from_user.first_name} avisou \
 {message.reply_to_message.from_user.full_name} ({member.warnings}/{chat.warnings_to_ban}) "
                                    )
         member.save()
@@ -64,7 +64,7 @@ async def unban_member(message: types.Message):
                                 message.reply_to_message.from_user.id,
                                 only_if_banned=True)
 
-    await bot.send_message(message.chat.id, f"{message.from_user.first_name} unbanned \
+    await bot.send_message(message.chat.id, f"{message.from_user.first_name} não banido \
     {message.reply_to_message.from_user.full_name}"
                            )
 
@@ -76,7 +76,7 @@ async def mute_member(message: types.Message):
     try:
         await bot.restrict_chat_member(message.chat.id, message.reply_to_message.from_user.id, can_send_messages=False)
     except exceptions.UserIsAnAdministratorOfTheChat:
-        await bot.send_message(message.chat.id, "User is administrator...")
+        await bot.send_message(message.chat.id, "O usuário é administrador...")
     else:
         await bot.send_message(message.chat.id,
                                f"{message.from_user.first_name} muted {message.reply_to_message.from_user.full_name}\
