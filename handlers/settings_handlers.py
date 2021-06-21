@@ -36,6 +36,6 @@ async def set_warnings_to_ban(message: types.Message):
     chat = Chat.get_chat(message.chat.id)
     warns = abs(int(message.text.split()[1]))
     chat.warnings_to_ban = warns
-    message_text = f"{message.from_user.first_name} setted warnings for ban to {warns}."
+    message_text = f"{message.from_user.first_name} avisos definidos para proibição de {warns}."
     await bot.send_message(message.chat.id, message_text)
     chat.save()
