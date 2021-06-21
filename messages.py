@@ -1,48 +1,48 @@
 messages = {
     'hello_msg': 
 """
-Hello, I am IntelligentAdminBot, add me to your chat and give me admin rights.
+Olá, sou Tinder Brazil 🇧🇷, me adicione ao seu chat e me dê direitos de administrador.
 
-Which commands I know?
+Quais comandos eu conheço?
 
-/stat -> Get statistics and settings.
-/ban (Must be reply to message) -> Ban member.
-/mute (Must by reply to message) -> Mute member.
-/warn -> Warn member.
-/unban -> Unban member.
-/unmute -> Unmute member.
-/status (Must be reply to message) -> Get information about member.
-/ws -> Enable/Disable Spammer-Protection System.
-/setbantime -> Set specific ban time, set zero to disable it.
-/setwarnstoban -> Set specific count of warnings to ban.
+/stat -> Obtenha estatísticas e configurações.
+/ban (Deve ser responder a mensagem) -> Banir membro.
+/mute (Deve responder à mensagem) -> Silenciar membro.
+/warn -> Avisar membro.
+/unban -> Desbanir membro.
+/unmute -> Membro com som.
+/status (Deve ser responder à mensagem) -> Obter informações sobre o membro.
+/ws -> Habilitar / desabilitar/ Sistema de proteção contra spam.
+/setbantime -> Defina um tempo de proibição específico, defina zero para desativá-lo.
+/setwarnstoban -> Defina uma contagem específica de avisos para banir.
 
 """,
     'stat_msg': 
-"""Total messages: {ttl_msg}
-Warnings to ban: {w_to_ban}
-Welcome System: {ws}
-Ban time: {tm_ban} seconds
-Top of members by activity"
+"""Total de mensagens: {ttl_msg}
+Avisos para banir: {w_to_ban}
+Sistema de Boas Vindas: {ws}
+Tempo: {tm_ban} seconds
+Top de membros por atividade"
 """,
 
 'member_info': 
-"""User: {full_name}
-Messages from this user: {member_msg_count}
-Reputation: {mem_rep}
-Warnings: {warns}/{warns_to_ban}
+"""User:Sistema de boas-vindas: {full_name}
+Mensagens deste usuário: {member_msg_count}
+Reputação: {mem_rep}
+Avisos: {warns}/{warns_to_ban}
 """,
 
-"enabled": "enabled",
-"disabled": "disabled",
-"ws_edit": "{name} {action} welcome system.",
-"msg_ch_bantime": "{name} changed bantime to {new}.",
-"invalid_arg": "Error, invalid argument provided.",
+"enabled": "ativado",
+"disabled": "Desativado",
+"ws_edit": "{name} {action} sistema de boas-vindas.",
+"msg_ch_bantime": "{name} mudou bantime para {new}.",
+"invalid_arg": "Erro, argumento inválido fornecido.",
 
 }
 
 def get_message(message_type):
     """
-    Just a pretty wrapper.
+    Apenas um invólucro bonito.
     Returns messages[message_type]
     """
 
